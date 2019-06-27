@@ -1,0 +1,21 @@
+{% load static %}
+<link rel='stylesheet' type='text/css'
+href="{% static 'student/fileupload.css' %}">
+
+<h1>Upload Details of a File</h1>
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="file" name="myfile">
+<button type="submit">upload</button>
+</form>
+
+
+{% if uploaded_file_url %}
+<p>File uploaded at:<a href="{{uploaded_file_url}}"</a></p>
+{% endif %}
+
+<p><a href="{% url 'upload' %}">Return to home</a></p>
+{% endblock %}
+

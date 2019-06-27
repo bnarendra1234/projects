@@ -1,0 +1,18 @@
+<form action="." method="POST">{% csrf_token %}
+<table>
+{{f}}
+
+</table>
+<input type="submit" name="sub" value="Upload">
+</form>
+{% block content %}
+{% if wordDoc %}
+{% for table in wordDoc.tables %}
+{% for row in table.rows %}
+{% for cell in row.cells %}
+{{cell.text}}<br>
+{% endfor %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+{% endblock %}

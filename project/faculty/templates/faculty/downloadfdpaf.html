@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Download Page</title>
+</head>
+<body>
+    <a href="{% url 'welcome' %}">HOMEPAGE</a>
+<h1>Download Page</h1><br>
+{% if err %}
+<p style='color:red'>{{err}}</p>
+{% endif %}
+ <form method='post' action='' nonvalidate>
+    {% csrf_token %}
+    <table>
+    {{ f.as_table}}
+    </table>
+    <input type='submit' value='download'/>
+    </form>
+    {% if rs %}
+    <hr/>
+    <h3>fdp Details</h3>
+       {% for x in rs %}
+    Empid:{{x.empid}}<br>
+    Empname:{{x.empname}}<br>
+    attended_on_topic:{{x.attended_on_topic}}<br>
+    Resource_person:{{x.resource_person}}<br>
+    Venue:{{x.venue}}<br>
+    no_of_days:{{x.no_of_days}}<br>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

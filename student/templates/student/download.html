@@ -1,0 +1,26 @@
+<center>
+<h1>download details</h1>
+</center>
+    
+<form method='POST' action=''>
+     {% csrf_token %}
+     <table>{{f.as_table}}</table>
+     <input type='submit' value='Download'/>
+</form>
+{% if rs %}
+<hr/>
+
+<h3>Student Details</h3>
+{% for x in rs %}
+Name:{{x.name}}<br>
+Phone Number:{{x.phno}}<br>
+Roll no:{{x.rno}}<br>
+Email:{{x.email}}<br>
+{% endfor %}
+{% endif %}
+
+
+{% if err %}
+{{err}}
+<p style='color:red'></p>
+     {% endif %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete Page</title>
+</head>
+<body>
+	<a href="{% url 'welcome' %}">HOMEPAGE</a>
+    <h1>Deleting</h1>
+    {% if err %}
+<p style='color:red'>{{err}}</p>
+{% endif %}
+ <form method='post' action='' nonvalidate>
+    {% csrf_token %}
+    <table>
+    {{ f.as_table}}
+    </table>
+    <input type='submit' value='delete'/>
+    </form>
+</body>
+</html>

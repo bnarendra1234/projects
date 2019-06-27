@@ -1,0 +1,24 @@
+{% block content %}
+<h2>upload details</h2>
+<table class="table">
+<thead>
+<tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Download</th>
+        </tr>
+</thead>
+<tbody>
+  {% for b in books %}
+  <tr>
+  <td>{{ b.title }}</td>
+  <td>{{ b.author }}</td>
+  <td>
+  <a href="{{ b.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">Download Pdf</a>
+  </td>
+
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+{% endblock %}

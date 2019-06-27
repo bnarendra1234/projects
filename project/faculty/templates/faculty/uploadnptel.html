@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>uploadfdpcf</title>
+</head>
+<body>
+	<a href="{% url 'welcome' %}">HOMEPAGE</a>
+<link rel='stylesheet' type='text/css' href="{% static 'faculty/uploadfdpcf.css' %}">
+<script type='text/javascript' src="{% static 'faculty/uploadfdpcf.js' %}"></script>
+<input type='button' value='lokesh' onclick="func()"/>
+<h1>upload details</h1>
+<form method ='post' action'' nonvalidate>
+{% csrf_token %}
+<table>
+{{ f.as_table}}
+</table>
+<input type='submit' value='upload'/>
+</form>
+</body>
+</html>
